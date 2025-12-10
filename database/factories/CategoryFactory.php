@@ -12,7 +12,13 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(),
+            'name' => fake()->unique()->randomElement([
+                'Sport',
+                'Automobili',
+                'Tehnologija',
+                'Nekretnine',
+                'Kompjuteri'
+            ]),
         ];
     }
 }
