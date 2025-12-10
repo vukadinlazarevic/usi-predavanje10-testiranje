@@ -1,0 +1,29 @@
+created:
+    - app/Http/Controllers/CategoryController.php
+    - app/Http/Controllers/AdvertisementController.php
+    - database/factories/CategoryFactory.php
+    - database/factories/AdvertisementFactory.php
+    - database/migrations/2025_12_09_225928_create_categories_table.php
+    - database/migrations/2025_12_09_225929_create_advertisements_table.php
+    - app/Models/Category.php
+    - app/Models/Advertisement.php
+    - tests/Feature/Http/Controllers/CategoryControllerTest.php
+    - tests/Feature/Http/Controllers/AdvertisementControllerTest.php
+    - app/Http/Requests/CategoryStoreRequest.php
+    - app/Http/Requests/CategoryUpdateRequest.php
+    - app/Http/Requests/AdvertisementStoreRequest.php
+    - app/Http/Requests/AdvertisementUpdateRequest.php
+    - resources/views/category/index.blade.php
+    - resources/views/category/create.blade.php
+    - resources/views/category/show.blade.php
+    - resources/views/category/edit.blade.php
+    - resources/views/advertisement/index.blade.php
+    - resources/views/advertisement/create.blade.php
+    - resources/views/advertisement/show.blade.php
+    - resources/views/advertisement/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
+    Category: { name: 'string:100' }
+    Advertisement: { title: 'string:150', content: text, price: integer, start_date: date, end_date: date, category_id: 'id foreign:Category' }

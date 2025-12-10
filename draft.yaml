@@ -1,0 +1,21 @@
+models:
+  Category:
+    name: string:100
+
+
+  Advertisement:
+    title: string:150
+    content: text
+    price: integer
+    start_date: date
+    end_date: date
+    category_id: id foreign:Category
+
+
+controllers:
+  Category:
+    resource
+
+
+  Advertisement:
+    resource
