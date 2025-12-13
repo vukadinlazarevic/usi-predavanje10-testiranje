@@ -32,7 +32,7 @@ jobs:
             ${{runner.os}}-composer-
 
       - name: Instalacija komposer zavisnosti
-        run: composer install --prefer-dist --no-progress --no-interactions
+        run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Kopiranje .env fajla
         run: cp .env.example .env
