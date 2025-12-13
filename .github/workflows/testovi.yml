@@ -1,0 +1,32 @@
+name: Testovi
+
+on: 
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Proveru koda
+        uses: actions/checkout@v4
+
+      - name: Podesavanje PHP-a 
+        uses: shivmmathur/setup-php@v2
+        with: 
+          php-version: '8.4'
+          extensions: json, curl, sqlite3
+          coverage: none
+
+      - name: Kes composer zavisnosti
+        uses: actions/cache@v4
+        with: 
+              path: vendor
+              key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+              restore-keys: |
+               ${{ runner.os }}-composer-
