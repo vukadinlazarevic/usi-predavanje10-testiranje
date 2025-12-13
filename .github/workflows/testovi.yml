@@ -24,7 +24,7 @@ jobs:
           coverage: none 
 
       - name: Kes Composer zavisnosti
-        uses: actions/cach@v4
+        uses: actions/cache@v4
         with:
           path: vendor
           key: ${{ runner.os }}-composer-${{hashFiles('**/composer.lock')}}
