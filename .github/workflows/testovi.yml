@@ -44,7 +44,8 @@ jobs:
         run: php artisan test
 
       - name: Provera da li server radi
-        run: php artisan serve &
-             sleep 3
-             curl -s http://127.0.0.1:8000 | head -20
-             echo "✅Server uspesno pokrenut"
+        run: |
+            php artisan serve &
+            sleep 3
+            curl -s http://127.0.0.1:8000 | head -20
+            echo "✅Server uspesno pokrenut"
