@@ -30,3 +30,22 @@ jobs:
               key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
               restore-keys: |
                ${{ runner.os }}-composer-
+
+      - name: Instalacija composer paketa
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Kopiranje .env.example u .env fajl
+        run: cp .env.example .env
+
+      - name: Generisanje aplikacijskog kljuca
+        run: php artisan key:generate
+
+      - name: Pokretanje testova
+        run: php artisan test
+
+      - name: Provera da li server radi
+        run: |
+          php artisan serve &
+          sleep 3
+          curl -s http://127.0.0.1:8000/advertisements | head -20
+          echo "✅Server uspesno pokrenut!"
