@@ -49,3 +49,6 @@ jobs:
           sleep 3
           curl -s http://127.0.0.1:8000/advertisements | head -20
           echo "✅Server uspesno pokrenut!"
+
+      - name: Pokretanje Pint-a
+        run: ./vendor/bin/pint
